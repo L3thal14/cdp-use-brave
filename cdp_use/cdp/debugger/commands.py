@@ -4,7 +4,7 @@
 
 """CDP Debugger Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -106,8 +106,8 @@ class GetScriptSourceParameters(TypedDict):
 class GetScriptSourceReturns(TypedDict):
     scriptSource: "str"
     """Script source (empty in case of Wasm bytecode)."""
-    bytecode: "str"
-    """Wasm bytecode. (Encoded as a base64 string when passed over JSON)"""
+    bytecode: "Any"
+    """Wasm bytecode."""
 
 
 
@@ -146,8 +146,8 @@ class GetWasmBytecodeParameters(TypedDict):
 
 
 class GetWasmBytecodeReturns(TypedDict):
-    bytecode: "str"
-    """Script source. (Encoded as a base64 string when passed over JSON)"""
+    bytecode: "Any"
+    """Script source."""
 
 
 

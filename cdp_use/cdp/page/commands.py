@@ -4,21 +4,23 @@
 
 """CDP Page Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ..debugger.types import SearchMatch
+    from ..dom.types import NodeId
     from ..dom.types import Rect
     from ..emulation.types import ScreenOrientation
     from ..io.types import StreamHandle
     from ..network.types import LoaderId
     from ..runtime.types import ExecutionContextId
-    from .types import AdScriptAncestry
+    from .types import AdScriptId
     from .types import AppManifestError
     from .types import AppManifestParsedProperties
+    from .types import AutoResponseMode
     from .types import CompilationCacheParams
     from .types import FontFamilies
     from .types import FontSizes
@@ -84,8 +86,8 @@ class CaptureScreenshotParameters(TypedDict, total=False):
 
 
 class CaptureScreenshotReturns(TypedDict):
-    data: "str"
-    """Base64-encoded image data. (Encoded as a base64 string when passed over JSON)"""
+    data: "Any"
+    """Base64-encoded image data."""
 
 
 
@@ -157,7 +159,7 @@ class GetInstallabilityErrorsReturns(TypedDict):
 
 
 class GetManifestIconsReturns(TypedDict):
-    primaryIcon: "str"
+    primaryIcon: "Any"
 
 
 
@@ -169,15 +171,14 @@ class GetAppIdReturns(TypedDict):
 
 
 
-class GetAdScriptAncestryParameters(TypedDict):
+class GetAdScriptAncestryIdsParameters(TypedDict):
     frameId: "FrameId"
 
 
-class GetAdScriptAncestryReturns(TypedDict):
-    adScriptAncestry: "AdScriptAncestry"
+class GetAdScriptAncestryIdsReturns(TypedDict):
+    adScriptAncestryIds: "List[AdScriptId]"
     """The ancestry chain of ad script identifiers leading to this frame's
-creation, along with the root script's filterlist rule. The ancestry
-chain is ordered from the most immediate script (in the frame creation
+creation, ordered from the most immediate script (in the frame creation
 stack) to more distant ancestors (that created the immediately preceding
 script). Only sent if frame is labelled as an ad and ids are available."""
 
@@ -331,8 +332,8 @@ in which case the content will be scaled to fit the paper size."""
 
 
 class PrintToPDFReturns(TypedDict):
-    data: "str"
-    """Base64-encoded pdf data. Empty if |returnAsStream| is specified. (Encoded as a base64 string when passed over JSON)"""
+    data: "Any"
+    """Base64-encoded pdf data. Empty if |returnAsStream| is specified."""
     stream: "StreamHandle"
     """A handle of the stream that holds resulting PDF data."""
 
@@ -573,22 +574,22 @@ class ProduceCompilationCacheParameters(TypedDict):
 
 class AddCompilationCacheParameters(TypedDict):
     url: "str"
-    data: "str"
-    """Base64-encoded data (Encoded as a base64 string when passed over JSON)"""
+    data: "Any"
+    """Base64-encoded data"""
 
 
 
 
 
 class SetSPCTransactionModeParameters(TypedDict):
-    mode: "str"
+    mode: "AutoResponseMode"
 
 
 
 
 
 class SetRPHRegistrationModeParameters(TypedDict):
-    mode: "str"
+    mode: "AutoResponseMode"
 
 
 
@@ -619,3 +620,20 @@ class SetPrerenderingAllowedParameters(TypedDict):
     isAllowed: "bool"
 
 
+
+
+
+class GeneratePageGraphReturns(TypedDict):
+    data: "str"
+    """Generated page graph GraphML."""
+
+
+
+class GeneratePageGraphNodeReportParameters(TypedDict):
+    nodeId: "NodeId"
+    """Id of the element to report on."""
+
+
+class GeneratePageGraphNodeReportReturns(TypedDict):
+    report: "List[str]"
+    """Generated report lines"""

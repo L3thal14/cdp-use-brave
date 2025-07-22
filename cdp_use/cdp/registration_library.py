@@ -15,26 +15,6 @@ class CDPRegistrationLibrary:
     def __init__(self, registry: 'EventRegistry'):
         self._registry = registry
 
-        # Console domain registration
-        from .console.registration import ConsoleRegistration
-        self.Console = ConsoleRegistration(registry)
-
-        # Debugger domain registration
-        from .debugger.registration import DebuggerRegistration
-        self.Debugger = DebuggerRegistration(registry)
-
-        # HeapProfiler domain registration
-        from .heapprofiler.registration import HeapProfilerRegistration
-        self.HeapProfiler = HeapProfilerRegistration(registry)
-
-        # Profiler domain registration
-        from .profiler.registration import ProfilerRegistration
-        self.Profiler = ProfilerRegistration(registry)
-
-        # Runtime domain registration
-        from .runtime.registration import RuntimeRegistration
-        self.Runtime = RuntimeRegistration(registry)
-
         # Accessibility domain registration
         from .accessibility.registration import AccessibilityRegistration
         self.Accessibility = AccessibilityRegistration(registry)
@@ -170,4 +150,24 @@ class CDPRegistrationLibrary:
         # BluetoothEmulation domain registration
         from .bluetoothemulation.registration import BluetoothEmulationRegistration
         self.BluetoothEmulation = BluetoothEmulationRegistration(registry)
+
+        # Console domain registration
+        from .console.registration import ConsoleRegistration
+        self.Console = ConsoleRegistration(registry)
+
+        # Debugger domain registration
+        from .debugger.registration import DebuggerRegistration
+        self.Debugger = DebuggerRegistration(registry)
+
+        # HeapProfiler domain registration
+        from .heapprofiler.registration import HeapProfilerRegistration
+        self.HeapProfiler = HeapProfilerRegistration(registry)
+
+        # Profiler domain registration
+        from .profiler.registration import ProfilerRegistration
+        self.Profiler = ProfilerRegistration(registry)
+
+        # Runtime domain registration
+        from .runtime.registration import RuntimeRegistration
+        self.Runtime = RuntimeRegistration(registry)
 

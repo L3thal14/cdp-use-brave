@@ -174,13 +174,6 @@ physiologically accurate emulations for medically recognized color vision defici
 
 
 
-class SetEmulatedOSTextScaleParameters(TypedDict, total=False):
-    scale: "float"
-
-
-
-
-
 class SetGeolocationOverrideParameters(TypedDict, total=False):
     latitude: "float"
     """Mock latitude"""
@@ -347,14 +340,6 @@ class SetVisibleSizeParameters(TypedDict):
 class SetDisabledImageTypesParameters(TypedDict):
     imageTypes: "List[DisabledImageType]"
     """Image types to disable."""
-
-
-
-
-
-class SetDataSaverOverrideParameters(TypedDict, total=False):
-    dataSaverEnabled: "bool"
-    """Override value. Omitting the parameter disables the override."""
 
 
 

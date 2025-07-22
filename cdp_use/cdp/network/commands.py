@@ -4,7 +4,7 @@
 
 """CDP Network Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -65,9 +65,9 @@ class ContinueInterceptedRequestParameters(TypedDict):
     """If set this causes the request to fail with the given reason. Passing `Aborted` for requests
 marked with `isNavigationRequest` also cancels the navigation. Must not be set in response
 to an authChallenge."""
-    rawResponse: "NotRequired[str]"
+    rawResponse: "NotRequired[Any]"
     """If set the requests completes using with the provided base64 encoded raw response, including
-HTTP status line and headers etc... Must not be set in response to an authChallenge. (Encoded as a base64 string when passed over JSON)"""
+HTTP status line and headers etc... Must not be set in response to an authChallenge."""
     url: "NotRequired[str]"
     """If set the request url will be modified in a way that's not observable by page. Must not be
 set in response to an authChallenge."""
@@ -357,8 +357,8 @@ class StreamResourceContentParameters(TypedDict):
 
 
 class StreamResourceContentReturns(TypedDict):
-    bufferedData: "str"
-    """Data that has been buffered until streaming is enabled. (Encoded as a base64 string when passed over JSON)"""
+    bufferedData: "Any"
+    """Data that has been buffered until streaming is enabled."""
 
 
 

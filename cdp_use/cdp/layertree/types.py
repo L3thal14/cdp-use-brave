@@ -4,7 +4,7 @@
 
 """CDP LayerTree Domain Types"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -54,8 +54,8 @@ class PictureTile(TypedDict):
     """Offset from owning layer left boundary"""
     y: "float"
     """Offset from owning layer top boundary"""
-    picture: "str"
-    """Base64-encoded snapshot data. (Encoded as a base64 string when passed over JSON)"""
+    picture: "Any"
+    """Base64-encoded snapshot data."""
 
 
 

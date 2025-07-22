@@ -15,30 +15,6 @@ class CDPLibrary:
     def __init__(self, client: 'CDPClient'):
         self._client = client
 
-        # Console domain
-        from .console.library import ConsoleClient
-        self.Console = ConsoleClient(client)
-
-        # Debugger domain
-        from .debugger.library import DebuggerClient
-        self.Debugger = DebuggerClient(client)
-
-        # HeapProfiler domain
-        from .heapprofiler.library import HeapProfilerClient
-        self.HeapProfiler = HeapProfilerClient(client)
-
-        # Profiler domain
-        from .profiler.library import ProfilerClient
-        self.Profiler = ProfilerClient(client)
-
-        # Runtime domain
-        from .runtime.library import RuntimeClient
-        self.Runtime = RuntimeClient(client)
-
-        # Schema domain
-        from .schema.library import SchemaClient
-        self.Schema = SchemaClient(client)
-
         # Accessibility domain
         from .accessibility.library import AccessibilityClient
         self.Accessibility = AccessibilityClient(client)
@@ -226,4 +202,28 @@ class CDPLibrary:
         # BluetoothEmulation domain
         from .bluetoothemulation.library import BluetoothEmulationClient
         self.BluetoothEmulation = BluetoothEmulationClient(client)
+
+        # Console domain
+        from .console.library import ConsoleClient
+        self.Console = ConsoleClient(client)
+
+        # Debugger domain
+        from .debugger.library import DebuggerClient
+        self.Debugger = DebuggerClient(client)
+
+        # HeapProfiler domain
+        from .heapprofiler.library import HeapProfilerClient
+        self.HeapProfiler = HeapProfilerClient(client)
+
+        # Profiler domain
+        from .profiler.library import ProfilerClient
+        self.Profiler = ProfilerClient(client)
+
+        # Runtime domain
+        from .runtime.library import RuntimeClient
+        self.Runtime = RuntimeClient(client)
+
+        # Schema domain
+        from .schema.library import SchemaClient
+        self.Schema = SchemaClient(client)
 

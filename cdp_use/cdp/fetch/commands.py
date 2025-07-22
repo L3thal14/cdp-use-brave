@@ -4,7 +4,7 @@
 
 """CDP Fetch Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -47,15 +47,15 @@ class FulfillRequestParameters(TypedDict):
     """An HTTP response code."""
     responseHeaders: "NotRequired[List[HeaderEntry]]"
     """Response headers."""
-    binaryResponseHeaders: "NotRequired[str]"
+    binaryResponseHeaders: "NotRequired[Any]"
     """Alternative way of specifying response headers as a \\0-separated
 series of name: value pairs. Prefer the above method unless you
 need to represent some non-UTF8 values that can't be transmitted
-over the protocol as text. (Encoded as a base64 string when passed over JSON)"""
-    body: "NotRequired[str]"
+over the protocol as text."""
+    body: "NotRequired[Any]"
     """A response body. If absent, original response body will be used if
 the request is intercepted at the response stage and empty body
-will be used if the request is intercepted at the request stage. (Encoded as a base64 string when passed over JSON)"""
+will be used if the request is intercepted at the request stage."""
     responsePhrase: "NotRequired[str]"
     """A textual representation of responseCode.
 If absent, a standard phrase matching responseCode is used."""
@@ -71,8 +71,8 @@ class ContinueRequestParameters(TypedDict):
     """If set, the request url will be modified in a way that's not observable by page."""
     method: "NotRequired[str]"
     """If set, the request method is overridden."""
-    postData: "NotRequired[str]"
-    """If set, overrides the post data in the request. (Encoded as a base64 string when passed over JSON)"""
+    postData: "NotRequired[Any]"
+    """If set, overrides the post data in the request."""
     headers: "NotRequired[List[HeaderEntry]]"
     """If set, overrides the request headers. Note that the overrides do not
 extend to subsequent redirect hops, if a redirect happens. Another override
@@ -104,11 +104,11 @@ class ContinueResponseParameters(TypedDict):
 If absent, a standard phrase matching responseCode is used."""
     responseHeaders: "NotRequired[List[HeaderEntry]]"
     """Response headers. If absent, original response headers will be used."""
-    binaryResponseHeaders: "NotRequired[str]"
+    binaryResponseHeaders: "NotRequired[Any]"
     """Alternative way of specifying response headers as a \\0-separated
 series of name: value pairs. Prefer the above method unless you
 need to represent some non-UTF8 values that can't be transmitted
-over the protocol as text. (Encoded as a base64 string when passed over JSON)"""
+over the protocol as text."""
 
 
 

@@ -233,8 +233,6 @@ class GetOuterHTMLParameters(TypedDict, total=False):
     """Identifier of the backend node."""
     objectId: "RemoteObjectId"
     """JavaScript object id of the node wrapper."""
-    includeShadowDOM: "bool"
-    """Include all shadow roots. Equals to false if not specified."""
 
 
 class GetOuterHTMLReturns(TypedDict):

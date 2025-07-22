@@ -31,6 +31,7 @@ if TYPE_CHECKING:
     ReportingApiEndpointsChangedForOriginEvent,
     ReportingApiReportAddedEvent,
     ReportingApiReportUpdatedEvent,
+    RequestAdblockInfoReceivedEvent,
     RequestInterceptedEvent,
     RequestServedFromCacheEvent,
     RequestWillBeSentEvent,
@@ -734,4 +735,17 @@ And after 'enableReportingApi' for all existing reports.
                      Receives (event_data, session_id) as parameters.
         """
         self._registry.register("Network.reportingApiEndpointsChangedForOrigin", callback)
+
+    def requestAdblockInfoReceived(
+        self,
+        callback: Callable[['RequestAdblockInfoReceivedEvent', Optional[str]], None],
+    ) -> None:
+        """
+        Register a callback for requestAdblockInfoReceived events.
+        
+        Args:
+            callback: Function to call when event occurs.
+                     Receives (event_data, session_id) as parameters.
+        """
+        self._registry.register("Network.requestAdblockInfoReceived", callback)
 

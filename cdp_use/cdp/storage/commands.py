@@ -342,6 +342,6 @@ party URL, only the first-party URL is returned in the array."""
 class SetProtectedAudienceKAnonymityParameters(TypedDict):
     owner: "str"
     name: "str"
-    hashes: "List[str]"
+    hashes: "List[Any]"
 
 

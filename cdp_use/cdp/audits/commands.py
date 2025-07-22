@@ -4,7 +4,7 @@
 
 """CDP Audits Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -25,8 +25,8 @@ class GetEncodedResponseParameters(TypedDict):
 
 
 class GetEncodedResponseReturns(TypedDict):
-    body: "str"
-    """The encoded body as a base64 string. Omitted if sizeOnly is true. (Encoded as a base64 string when passed over JSON)"""
+    body: "Any"
+    """The encoded body as a base64 string. Omitted if sizeOnly is true."""
     originalSize: "int"
     """Size before re-encoding."""
     encodedSize: "int"

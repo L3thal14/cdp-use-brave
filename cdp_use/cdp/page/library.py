@@ -23,9 +23,12 @@ if TYPE_CHECKING:
     from .commands import CreateIsolatedWorldReturns
     from .commands import DeleteCookieParameters
     from .commands import EnableParameters
+    from .commands import GeneratePageGraphNodeReportParameters
+    from .commands import GeneratePageGraphNodeReportReturns
+    from .commands import GeneratePageGraphReturns
     from .commands import GenerateTestReportParameters
-    from .commands import GetAdScriptAncestryParameters
-    from .commands import GetAdScriptAncestryReturns
+    from .commands import GetAdScriptAncestryIdsParameters
+    from .commands import GetAdScriptAncestryIdsReturns
     from .commands import GetAppIdReturns
     from .commands import GetAppManifestParameters
     from .commands import GetAppManifestReturns
@@ -275,13 +278,13 @@ Only returns values if the feature flag 'WebAppEnableManifestId' is enabled"""
             session_id=session_id,
         ))
 
-    async def getAdScriptAncestry(
+    async def getAdScriptAncestryIds(
         self,
-        params: "GetAdScriptAncestryParameters",
+        params: "GetAdScriptAncestryIdsParameters",
         session_id: Optional[str] = None,
-    ) -> "GetAdScriptAncestryReturns":
-        return cast("GetAdScriptAncestryReturns", await self._client.send_raw(
-            method="Page.getAdScriptAncestry",
+    ) -> "GetAdScriptAncestryIdsReturns":
+        return cast("GetAdScriptAncestryIdsReturns", await self._client.send_raw(
+            method="Page.getAdScriptAncestryIds",
             params=params,
             session_id=session_id,
         ))
@@ -819,6 +822,30 @@ for more details.
 TODO(https://crbug.com/1440085): Remove this once Puppeteer supports tab targets."""
         return cast("Dict[str, Any]", await self._client.send_raw(
             method="Page.setPrerenderingAllowed",
+            params=params,
+            session_id=session_id,
+        ))
+
+    async def generatePageGraph(
+        self,
+        params: None = None,
+        session_id: Optional[str] = None,
+    ) -> "GeneratePageGraphReturns":
+        """Generates a Page Graph report for the page."""
+        return cast("GeneratePageGraphReturns", await self._client.send_raw(
+            method="Page.generatePageGraph",
+            params=params,
+            session_id=session_id,
+        ))
+
+    async def generatePageGraphNodeReport(
+        self,
+        params: "GeneratePageGraphNodeReportParameters",
+        session_id: Optional[str] = None,
+    ) -> "GeneratePageGraphNodeReportReturns":
+        """Generates a report from a node's Page Graph info."""
+        return cast("GeneratePageGraphNodeReportReturns", await self._client.send_raw(
+            method="Page.generatePageGraphNodeReport",
             params=params,
             session_id=session_id,
         ))

@@ -392,15 +392,15 @@ class PartitioningBlobURLIssueDetails(TypedDict):
 
 
 
-ElementAccessibilityIssueReason = Literal["DisallowedSelectChild", "DisallowedOptGroupChild", "NonPhrasingContentOptionChild", "InteractiveContentOptionChild", "InteractiveContentLegendChild", "InteractiveContentSummaryDescendant"]
+SelectElementAccessibilityIssueReason = Literal["DisallowedSelectChild", "DisallowedOptGroupChild", "NonPhrasingContentOptionChild", "InteractiveContentOptionChild", "InteractiveContentLegendChild"]
 
 
 
-class ElementAccessibilityIssueDetails(TypedDict):
-    """This issue warns about errors in the select or summary element content model."""
+class SelectElementAccessibilityIssueDetails(TypedDict):
+    """This issue warns about errors in the select element content model."""
 
     nodeId: "BackendNodeId"
-    elementAccessibilityIssueReason: "ElementAccessibilityIssueReason"
+    selectElementAccessibilityIssueReason: "SelectElementAccessibilityIssueReason"
     hasDisallowedAttributes: "bool"
 
 
@@ -452,7 +452,7 @@ re-identify users."""
 
 
 
-InspectorIssueCode = Literal["CookieIssue", "MixedContentIssue", "BlockedByResponseIssue", "HeavyAdIssue", "ContentSecurityPolicyIssue", "SharedArrayBufferIssue", "LowTextContrastIssue", "CorsIssue", "AttributionReportingIssue", "QuirksModeIssue", "PartitioningBlobURLIssue", "NavigatorUserAgentIssue", "GenericIssue", "DeprecationIssue", "ClientHintIssue", "FederatedAuthRequestIssue", "BounceTrackingIssue", "CookieDeprecationMetadataIssue", "StylesheetLoadingIssue", "FederatedAuthUserInfoRequestIssue", "PropertyRuleIssue", "SharedDictionaryIssue", "ElementAccessibilityIssue", "SRIMessageSignatureIssue", "UserReidentificationIssue"]
+InspectorIssueCode = Literal["CookieIssue", "MixedContentIssue", "BlockedByResponseIssue", "HeavyAdIssue", "ContentSecurityPolicyIssue", "SharedArrayBufferIssue", "LowTextContrastIssue", "CorsIssue", "AttributionReportingIssue", "QuirksModeIssue", "PartitioningBlobURLIssue", "NavigatorUserAgentIssue", "GenericIssue", "DeprecationIssue", "ClientHintIssue", "FederatedAuthRequestIssue", "BounceTrackingIssue", "CookieDeprecationMetadataIssue", "StylesheetLoadingIssue", "FederatedAuthUserInfoRequestIssue", "PropertyRuleIssue", "SharedDictionaryIssue", "SelectElementAccessibilityIssue", "SRIMessageSignatureIssue", "UserReidentificationIssue"]
 """A unique identifier for the type of issue. Each type may use one of the
 optional fields in InspectorIssueDetails to convey more specific
 information about the kind of issue."""
@@ -486,7 +486,7 @@ add a new optional field to this type."""
     propertyRuleIssueDetails: "PropertyRuleIssueDetails"
     federatedAuthUserInfoRequestIssueDetails: "FederatedAuthUserInfoRequestIssueDetails"
     sharedDictionaryIssueDetails: "SharedDictionaryIssueDetails"
-    elementAccessibilityIssueDetails: "ElementAccessibilityIssueDetails"
+    selectElementAccessibilityIssueDetails: "SelectElementAccessibilityIssueDetails"
     sriMessageSignatureIssueDetails: "SRIMessageSignatureIssueDetails"
     userReidentificationIssueDetails: "UserReidentificationIssueDetails"
 

@@ -15,7 +15,7 @@ class MemoryDumpConfig(TypedDict):
 
 class TraceConfig(TypedDict, total=False):
     recordMode: "str"
-    """Controls how the trace buffer stores data. The default is `recordUntilFull`."""
+    """Controls how the trace buffer stores data."""
     traceBufferSizeInKb: "float"
     """Size of the trace buffer in kilobytes. If not specified or zero is passed, a default value
 of 200 MB would be used."""

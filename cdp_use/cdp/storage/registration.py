@@ -14,7 +14,6 @@ if TYPE_CHECKING:
     AttributionReportingReportSentEvent,
     AttributionReportingSourceRegisteredEvent,
     AttributionReportingTriggerRegisteredEvent,
-    AttributionReportingVerboseDebugReportSentEvent,
     CacheStorageContentUpdatedEvent,
     CacheStorageListUpdatedEvent,
     IndexedDBContentUpdatedEvent,
@@ -241,17 +240,4 @@ The following parameters are included in all events.
                      Receives (event_data, session_id) as parameters.
         """
         self._registry.register("Storage.attributionReportingReportSent", callback)
-
-    def attributionReportingVerboseDebugReportSent(
-        self,
-        callback: Callable[['AttributionReportingVerboseDebugReportSentEvent', Optional[str]], None],
-    ) -> None:
-        """
-        Register a callback for attributionReportingVerboseDebugReportSent events.
-        
-        Args:
-            callback: Function to call when event occurs.
-                     Receives (event_data, session_id) as parameters.
-        """
-        self._registry.register("Storage.attributionReportingVerboseDebugReportSent", callback)
 

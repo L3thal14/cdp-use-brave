@@ -95,9 +95,6 @@ Missing optional values will be filled in by the target with what it would norma
     mobile: "bool"
     bitness: "NotRequired[str]"
     wow64: "NotRequired[bool]"
-    formFactors: "NotRequired[List[str]]"
-    """Used to specify User Agent form-factor values.
-See https://wicg.github.io/ua-client-hints/#sec-ch-ua-form-factors"""
 
 
 

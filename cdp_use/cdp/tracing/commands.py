@@ -4,7 +4,7 @@
 
 """CDP Tracing Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import TypedDict
 
 from typing import TYPE_CHECKING
@@ -62,10 +62,10 @@ transfer mode (defaults to `json`)."""
     """Compression format to use. This only applies when using `ReturnAsStream`
 transfer mode (defaults to `none`)"""
     traceConfig: "TraceConfig"
-    perfettoConfig: "str"
+    perfettoConfig: "Any"
     """Base64-encoded serialized perfetto.protos.TraceConfig protobuf message
 When specified, the parameters `categories`, `options`, `traceConfig`
-are ignored. (Encoded as a base64 string when passed over JSON)"""
+are ignored."""
     tracingBackend: "TracingBackend"
     """Backend type (defaults to `auto`)"""
 

@@ -4,6 +4,7 @@
 
 """CDP BluetoothEmulation Domain Events"""
 
+from typing import Any
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -28,7 +29,7 @@ expected to exist when |type| is write."""
 class CharacteristicOperationReceivedEvent(TypedDict):
     characteristicId: "str"
     type: "CharacteristicOperationType"
-    data: "NotRequired[str]"
+    data: "NotRequired[Any]"
     writeType: "NotRequired[CharacteristicWriteType]"
 
 
@@ -39,4 +40,4 @@ respresented by |descriptorId| happened. |data| is expected to exist when
 class DescriptorOperationReceivedEvent(TypedDict):
     descriptorId: "str"
     type: "DescriptorOperationType"
-    data: "NotRequired[str]"
+    data: "NotRequired[Any]"

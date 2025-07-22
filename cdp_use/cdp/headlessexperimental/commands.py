@@ -4,6 +4,7 @@
 
 """CDP HeadlessExperimental Domain Commands"""
 
+from typing import Any
 from typing_extensions import TypedDict
 
 from typing import TYPE_CHECKING
@@ -32,5 +33,5 @@ class BeginFrameReturns(TypedDict):
     hasDamage: "bool"
     """Whether the BeginFrame resulted in damage and, thus, a new frame was committed to the
 display. Reported for diagnostic uses, may be removed in the future."""
-    screenshotData: "str"
-    """Base64-encoded image data of the screenshot, if one was requested and successfully taken. (Encoded as a base64 string when passed over JSON)"""
+    screenshotData: "Any"
+    """Base64-encoded image data of the screenshot, if one was requested and successfully taken."""

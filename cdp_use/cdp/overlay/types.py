@@ -272,4 +272,4 @@ class IsolationModeHighlightConfig(TypedDict, total=False):
 
 
 
-InspectMode = Literal["searchForNode", "searchForUAShadowDOM", "captureAreaScreenshot", "none"]
+InspectMode = Literal["searchForNode", "searchForUAShadowDOM", "captureAreaScreenshot", "showDistances", "none"]

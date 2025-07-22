@@ -13,6 +13,7 @@ if TYPE_CHECKING:
     from .commands import DeliverPushMessageParameters
     from .commands import DispatchPeriodicSyncEventParameters
     from .commands import DispatchSyncEventParameters
+    from .commands import InspectWorkerParameters
     from .commands import SetForceUpdateOnPageLoadParameters
     from .commands import SkipWaitingParameters
     from .commands import StartWorkerParameters
@@ -77,6 +78,17 @@ class ServiceWorkerClient:
     ) -> "Dict[str, Any]":
         return cast("Dict[str, Any]", await self._client.send_raw(
             method="ServiceWorker.enable",
+            params=params,
+            session_id=session_id,
+        ))
+
+    async def inspectWorker(
+        self,
+        params: "InspectWorkerParameters",
+        session_id: Optional[str] = None,
+    ) -> "Dict[str, Any]":
+        return cast("Dict[str, Any]", await self._client.send_raw(
+            method="ServiceWorker.inspectWorker",
             params=params,
             session_id=session_id,
         ))

@@ -39,6 +39,13 @@ class DispatchPeriodicSyncEventParameters(TypedDict):
 
 
 
+class InspectWorkerParameters(TypedDict):
+    versionId: "str"
+
+
+
+
+
 class SetForceUpdateOnPageLoadParameters(TypedDict):
     forceUpdateOnPageLoad: "bool"
 

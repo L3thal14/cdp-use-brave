@@ -16,7 +16,6 @@ if TYPE_CHECKING:
     from .commands import SetAutoDarkModeOverrideParameters
     from .commands import SetAutomationOverrideParameters
     from .commands import SetCPUThrottlingRateParameters
-    from .commands import SetDataSaverOverrideParameters
     from .commands import SetDefaultBackgroundColorOverrideParameters
     from .commands import SetDeviceMetricsOverrideParameters
     from .commands import SetDevicePostureOverrideParameters
@@ -25,7 +24,6 @@ if TYPE_CHECKING:
     from .commands import SetDocumentCookieDisabledParameters
     from .commands import SetEmitTouchEventsForMouseParameters
     from .commands import SetEmulatedMediaParameters
-    from .commands import SetEmulatedOSTextScaleParameters
     from .commands import SetEmulatedVisionDeficiencyParameters
     from .commands import SetFocusEmulationEnabledParameters
     from .commands import SetGeolocationOverrideParameters
@@ -293,18 +291,6 @@ Does nothing if no override is set."""
             session_id=session_id,
         ))
 
-    async def setEmulatedOSTextScale(
-        self,
-        params: Optional["SetEmulatedOSTextScaleParameters"] = None,
-        session_id: Optional[str] = None,
-    ) -> "Dict[str, Any]":
-        """Emulates the given OS text scale."""
-        return cast("Dict[str, Any]", await self._client.send_raw(
-            method="Emulation.setEmulatedOSTextScale",
-            params=params,
-            session_id=session_id,
-        ))
-
     async def setGeolocationOverride(
         self,
         params: Optional["SetGeolocationOverrideParameters"] = None,
@@ -532,18 +518,6 @@ on Android."""
     ) -> "Dict[str, Any]":
         return cast("Dict[str, Any]", await self._client.send_raw(
             method="Emulation.setDisabledImageTypes",
-            params=params,
-            session_id=session_id,
-        ))
-
-    async def setDataSaverOverride(
-        self,
-        params: Optional["SetDataSaverOverrideParameters"] = None,
-        session_id: Optional[str] = None,
-    ) -> "Dict[str, Any]":
-        """Override the value of navigator.connection.saveData"""
-        return cast("Dict[str, Any]", await self._client.send_raw(
-            method="Emulation.setDataSaverOverride",
             params=params,
             session_id=session_id,
         ))

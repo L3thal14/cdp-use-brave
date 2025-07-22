@@ -140,7 +140,7 @@ ResourcePriority = Literal["VeryLow", "Low", "Medium", "High", "VeryHigh"]
 class PostDataEntry(TypedDict, total=False):
     """Post data entry for HTTP request"""
 
-    bytes: "str"
+    bytes: "Any"
 
 
 
@@ -704,9 +704,6 @@ class SignedExchangeInfo(TypedDict):
 
     outerResponse: "Response"
     """The outer response of signed HTTP exchange which was received from network."""
-    hasExtraInfo: "bool"
-    """Whether network response for the signed exchange was accompanied by
-extra headers."""
     header: "NotRequired[SignedExchangeHeader]"
     """Information about the signed exchange header."""
     securityDetails: "NotRequired[SecurityDetails]"
@@ -754,7 +751,7 @@ class DirectUDPSocketOptions(TypedDict, total=False):
 
 
 class DirectUDPMessage(TypedDict):
-    data: "str"
+    data: "Any"
     remoteAddr: "NotRequired[str]"
     """Null for connected mode."""
     remotePort: "NotRequired[int]"
@@ -767,7 +764,7 @@ PrivateNetworkRequestPolicy = Literal["Allow", "BlockFromInsecureToMorePrivate",
 
 
 
-IPAddressSpace = Literal["Loopback", "Private", "Public", "Unknown"]
+IPAddressSpace = Literal["Local", "Private", "Public", "Unknown"]
 
 
 
@@ -887,3 +884,18 @@ CORB and streaming."""
 
     disableCache: "bool"
     includeCredentials: "bool"
+
+
+
+class AdblockInfo(TypedDict):
+    requestUrl: "str"
+    checkedUrl: "str"
+    sourceHost: "str"
+    resourceType: "NotRequired[ResourceType]"
+    aggressive: "bool"
+    blocked: "bool"
+    didMatchImportantRule: "bool"
+    didMatchRule: "bool"
+    didMatchException: "bool"
+    hasMockData: "bool"
+    rewrittenUrl: "NotRequired[str]"

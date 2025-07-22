@@ -4,7 +4,7 @@
 
 """CDP BluetoothEmulation Domain Types"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import Literal
 from typing_extensions import TypedDict
 
@@ -40,8 +40,8 @@ class ManufacturerData(TypedDict):
     """Company identifier
 https://bitbucket.org/bluetooth-SIG/public/src/main/assigned_numbers/company_identifiers/company_identifiers.yaml
 https://usb.org/developers"""
-    data: "str"
-    """Manufacturer-specific data (Encoded as a base64 string when passed over JSON)"""
+    data: "Any"
+    """Manufacturer-specific data"""
 
 
 

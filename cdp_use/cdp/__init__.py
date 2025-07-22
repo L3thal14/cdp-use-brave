@@ -4,12 +4,6 @@
 
 """CDP Type-Safe Client"""
 
-from . import console
-from . import debugger
-from . import heapprofiler
-from . import profiler
-from . import runtime
-from . import schema
 from . import accessibility
 from . import animation
 from . import audits
@@ -57,18 +51,18 @@ from . import preload
 from . import fedcm
 from . import pwa
 from . import bluetoothemulation
+from . import console
+from . import debugger
+from . import heapprofiler
+from . import profiler
+from . import runtime
+from . import schema
 
 from .library import CDPLibrary
 from .registry import EventRegistry
 from .registration_library import CDPRegistrationLibrary
 
 __all__ = [
-    "console",
-    "debugger",
-    "heapprofiler",
-    "profiler",
-    "runtime",
-    "schema",
     "accessibility",
     "animation",
     "audits",
@@ -116,6 +110,12 @@ __all__ = [
     "fedcm",
     "pwa",
     "bluetoothemulation",
+    "console",
+    "debugger",
+    "heapprofiler",
+    "profiler",
+    "runtime",
+    "schema",
     "CDPLibrary",
     "EventRegistry",
     "CDPRegistrationLibrary",

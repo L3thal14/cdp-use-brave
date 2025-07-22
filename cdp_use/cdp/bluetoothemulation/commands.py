@@ -4,7 +4,7 @@
 
 """CDP BluetoothEmulation Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -66,7 +66,7 @@ class SimulateCharacteristicOperationResponseParameters(TypedDict):
     characteristicId: "str"
     type: "CharacteristicOperationType"
     code: "int"
-    data: "NotRequired[str]"
+    data: "NotRequired[Any]"
 
 
 
@@ -76,7 +76,7 @@ class SimulateDescriptorOperationResponseParameters(TypedDict):
     descriptorId: "str"
     type: "DescriptorOperationType"
     code: "int"
-    data: "NotRequired[str]"
+    data: "NotRequired[Any]"
 
 
 

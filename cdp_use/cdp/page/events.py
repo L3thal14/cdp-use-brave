@@ -4,7 +4,7 @@
 
 """CDP Page Domain Events"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -275,8 +275,8 @@ class NavigatedWithinDocumentEvent(TypedDict):
 
 """Compressed image data requested by the `startScreencast`."""
 class ScreencastFrameEvent(TypedDict):
-    data: "str"
-    """Base64-encoded compressed image. (Encoded as a base64 string when passed over JSON)"""
+    data: "Any"
+    """Base64-encoded compressed image."""
     metadata: "ScreencastFrameMetadata"
     """Screencast frame metadata."""
     sessionId: "int"
@@ -309,5 +309,5 @@ class WindowOpenEvent(TypedDict):
 if Page.setGenerateCompilationCache is enabled."""
 class CompilationCacheProducedEvent(TypedDict):
     url: "str"
-    data: "str"
-    """Base64-encoded data (Encoded as a base64 string when passed over JSON)"""
+    data: "Any"
+    """Base64-encoded data"""

@@ -4,13 +4,15 @@
 
 """CDP Network Domain Events"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
+    from ..network.types import RequestId
     from ..page.types import FrameId
+    from .types import AdblockInfo
     from .types import AssociatedCookie
     from .types import AuthChallenge
     from .types import BlockedReason
@@ -54,8 +56,8 @@ class DataReceivedEvent(TypedDict):
     """Data chunk length."""
     encodedDataLength: "int"
     """Actual bytes received (might be less than dataLength for compressed encodings)."""
-    data: "NotRequired[str]"
-    """Data that was received. (Encoded as a base64 string when passed over JSON)"""
+    data: "NotRequired[Any]"
+    """Data that was received."""
 
 
 
@@ -371,7 +373,7 @@ class DirectTCPSocketClosedEvent(TypedDict):
 """Fired when data is sent to tcp direct socket stream."""
 class DirectTCPSocketChunkSentEvent(TypedDict):
     identifier: "RequestId"
-    data: "str"
+    data: "Any"
     timestamp: "MonotonicTime"
 
 
@@ -379,7 +381,7 @@ class DirectTCPSocketChunkSentEvent(TypedDict):
 """Fired when data is received from tcp direct socket stream."""
 class DirectTCPSocketChunkReceivedEvent(TypedDict):
     identifier: "RequestId"
-    data: "str"
+    data: "Any"
     timestamp: "MonotonicTime"
 
 
@@ -599,3 +601,9 @@ class ReportingApiEndpointsChangedForOriginEvent(TypedDict):
     origin: "str"
     """Origin of the document(s) which configured the endpoints."""
     endpoints: "List[ReportingApiEndpoint]"
+
+
+
+class RequestAdblockInfoReceivedEvent(TypedDict):
+    requestId: "RequestId"
+    info: "AdblockInfo"

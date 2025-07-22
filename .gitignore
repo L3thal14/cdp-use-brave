@@ -5,6 +5,7 @@ build/
 dist/
 wheels/
 *.egg-info
+cdp_use/cdp/
 
 # Virtual environments
 .venv

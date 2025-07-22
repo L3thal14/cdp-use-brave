@@ -4,7 +4,7 @@
 
 """CDP Browser Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -166,24 +166,10 @@ with 'left', 'top', 'width' or 'height'. Leaves unspecified fields unchanged."""
 
 
 
-class SetContentsSizeParameters(TypedDict):
-    windowId: "WindowID"
-    """Browser window id."""
-    width: "NotRequired[int]"
-    """The window contents width in DIP. Assumes current width if omitted.
-Must be specified if 'height' is omitted."""
-    height: "NotRequired[int]"
-    """The window contents height in DIP. Assumes current height if omitted.
-Must be specified if 'width' is omitted."""
-
-
-
-
-
 class SetDockTileParameters(TypedDict, total=False):
     badgeLabel: "str"
-    image: "str"
-    """Png encoded image. (Encoded as a base64 string when passed over JSON)"""
+    image: "Any"
+    """Png encoded image."""
 
 
 

@@ -198,12 +198,3 @@ class AttributionReportingReportSentEvent(TypedDict):
     """If result is `sent`, populated with net/HTTP status."""
     netErrorName: "NotRequired[str]"
     httpStatusCode: "NotRequired[int]"
-
-
-
-class AttributionReportingVerboseDebugReportSentEvent(TypedDict):
-    url: "str"
-    body: "NotRequired[List[Dict[str, Any]]]"
-    netError: "NotRequired[int]"
-    netErrorName: "NotRequired[str]"
-    httpStatusCode: "NotRequired[int]"

@@ -4,6 +4,7 @@
 
 """CDP WebAuthn Domain Events"""
 
+from typing import Any
 from typing_extensions import TypedDict
 
 from typing import TYPE_CHECKING
@@ -23,7 +24,7 @@ class CredentialAddedEvent(TypedDict):
 PublicKeyCredential.signalUnknownCredential()."""
 class CredentialDeletedEvent(TypedDict):
     authenticatorId: "AuthenticatorId"
-    credentialId: "str"
+    credentialId: "Any"
 
 
 

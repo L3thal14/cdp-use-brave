@@ -4,7 +4,7 @@
 
 """CDP WebAuthn Domain Commands"""
 
-from typing import List
+from typing import Any, List
 from typing_extensions import NotRequired, TypedDict
 
 from typing import TYPE_CHECKING
@@ -68,7 +68,7 @@ class AddCredentialParameters(TypedDict):
 
 class GetCredentialParameters(TypedDict):
     authenticatorId: "AuthenticatorId"
-    credentialId: "str"
+    credentialId: "Any"
 
 
 class GetCredentialReturns(TypedDict):
@@ -87,7 +87,7 @@ class GetCredentialsReturns(TypedDict):
 
 class RemoveCredentialParameters(TypedDict):
     authenticatorId: "AuthenticatorId"
-    credentialId: "str"
+    credentialId: "Any"
 
 
 
@@ -118,7 +118,7 @@ class SetAutomaticPresenceSimulationParameters(TypedDict):
 
 class SetCredentialPropertiesParameters(TypedDict):
     authenticatorId: "AuthenticatorId"
-    credentialId: "str"
+    credentialId: "Any"
     backupEligibility: "NotRequired[bool]"
     backupState: "NotRequired[bool]"
 

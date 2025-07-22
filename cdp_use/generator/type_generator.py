@@ -87,7 +87,7 @@ class TypeGenerator:
             return self.generate_literal_type(type_id, type_def, description)
 
         # Handle primitive types with restrictions
-        if type_type in ["string", "integer", "number", "boolean"]:
+        if type_type in ["string", "integer", "number", "boolean","binary"]:
             return self.generate_primitive_type(type_id, type_def, description)
 
         # Handle object types
@@ -295,6 +295,7 @@ class TypeGenerator:
             "boolean": "bool",
             "any": "Any",
             "object": "Dict[str, Any]",
+            "binary": "bytes"
         }
         return mapping.get(cdp_type, "Any")
 

@@ -4,7 +4,7 @@
 
 """CDP CacheStorage Domain Types"""
 
-from typing import Any, List
+from typing import List
 from typing_extensions import Literal
 from typing_extensions import NotRequired, TypedDict
 
@@ -70,5 +70,5 @@ class Header(TypedDict):
 class CachedResponse(TypedDict):
     """Cached response"""
 
-    body: "Any"
+    body: "bytes"
     """Entry content, base64-encoded."""

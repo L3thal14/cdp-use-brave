@@ -1,4 +1,4 @@
-# CDP Use
+# CDP Use for Brave (Pagegraph)
 
 A **type-safe Python client generator** for the **Chrome DevTools Protocol (CDP)**. This library automatically generates Python bindings with full TypeScript-like type safety from the official CDP protocol specifications.
 
@@ -20,6 +20,13 @@ git clone https://github.com/browser-use/cdp-use
 cd cdp-use
 uv sync  # or pip install -r requirements.txt
 ```
+
+```bash
+Download Brave Nightly(https://brave.com/download-nightly)
+
+Run /Applications/Brave\ Browser\ Nightly.app/Contents/MacOS/Brave\ Browser\ Nightly --remote-debugging-port=9222
+```
+
 
 2. **Generate the CDP client library:**
 
@@ -232,7 +239,7 @@ cdp-use/
 1. Fork the repository
 2. Make changes to generator code (not the generated `cdp_use/cdp/` directory)
 3. Run `python -m cdp_use.generator` to regenerate
-4. Test with `python simple.py`
+4. Test with `python pg_crawl.py`
 5. Submit a pull request
 
 ## 🔗 Related

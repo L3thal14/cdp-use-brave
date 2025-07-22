@@ -4,7 +4,6 @@
 
 """CDP WebAuthn Domain Types"""
 
-from typing import Any
 from typing_extensions import Literal
 from typing_extensions import NotRequired, TypedDict
 
@@ -67,21 +66,21 @@ https://w3c.github.io/webauthn/#sctn-credential-backup"""
 
 
 class Credential(TypedDict):
-    credentialId: "Any"
+    credentialId: "bytes"
     isResidentCredential: "bool"
     rpId: "NotRequired[str]"
     """Relying Party ID the credential is scoped to. Must be set when adding a
 credential."""
-    privateKey: "Any"
+    privateKey: "bytes"
     """The ECDSA P-256 private key in PKCS#8 format."""
-    userHandle: "NotRequired[Any]"
+    userHandle: "NotRequired[bytes]"
     """An opaque byte sequence with a maximum size of 64 bytes mapping the
 credential to a specific user."""
     signCount: "int"
     """Signature counter. This is incremented by one for each successful
 assertion.
 See https://w3c.github.io/webauthn/#signature-counter"""
-    largeBlob: "NotRequired[Any]"
+    largeBlob: "NotRequired[bytes]"
     """The large blob associated with the credential.
 See https://w3c.github.io/webauthn/#sctn-large-blob-extension"""
     backupEligibility: "NotRequired[bool]"

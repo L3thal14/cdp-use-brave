@@ -140,7 +140,7 @@ ResourcePriority = Literal["VeryLow", "Low", "Medium", "High", "VeryHigh"]
 class PostDataEntry(TypedDict, total=False):
     """Post data entry for HTTP request"""
 
-    bytes: "Any"
+    bytes: "bytes"
 
 
 
@@ -751,7 +751,7 @@ class DirectUDPSocketOptions(TypedDict, total=False):
 
 
 class DirectUDPMessage(TypedDict):
-    data: "Any"
+    data: "bytes"
     remoteAddr: "NotRequired[str]"
     """Null for connected mode."""
     remotePort: "NotRequired[int]"
